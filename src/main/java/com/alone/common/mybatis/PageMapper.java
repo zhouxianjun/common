@@ -13,5 +13,5 @@ import java.util.Map;
  * @date 17-6-27 上午11:51
  */
 public interface PageMapper<T> {
-    List<Map<String, Object>> listByPage(@Param("page") Page page, @Param("sortName") String sortName, @Param("sortDir") String sortDir);
+    List<?> listByPage(@Param("page") Page page, @Param("sortName") String sortName, @Param("sortDir") String sortDir);
 }
