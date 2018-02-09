@@ -128,6 +128,26 @@ public class CommonUtils {
         return result;
     }
 
+    public static String sortSignKey(Map<String, Object> params) {
+        SortedMap<String, Object> parameters = new TreeMap<>();
+        Set<Map.Entry<String, Object>> es = params.entrySet();
+
+        for (Map.Entry<String, Object> entry : es) {
+            parameters.put(entry.getKey(), entry.getValue());
+        }
+
+        StringBuilder sb = new StringBuilder();
+        Set<Map.Entry<String, Object>> entries = parameters.entrySet();
+        for (Map.Entry<String, Object> entry : entries) {
+            String k = entry.getKey();
+            Object v = entry.getValue();
+            if (null != v && !"".equals(v) && !"sign".equals(k) && !"key".equals(k)) {
+                sb.append(k).append("=").append(v).append("&");
+            }
+        }
+        return sb.toString();
+    }
+
     private static void addValue(List<String> list, String key, Object value, String eq, boolean encode, String enc) throws UnsupportedEncodingException {
         list.add(key + (eq == null ? "=" : eq) + (value == null ? "" : encode ? URLEncoder.encode(value.toString(), enc) : value.toString()));
     }
