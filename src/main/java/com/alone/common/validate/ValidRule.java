@@ -1,9 +1,6 @@
 package com.alone.common.validate;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.apache.commons.lang3.ArrayUtils;
 
 import javax.lang.exception.ParamsMapValidationException;
@@ -21,6 +18,7 @@ public class ValidRule {
     public static final String ID_CARD_18 = "^(\\d{6})(18|19|20)?(\\d{2})([01]\\d)([0123]\\d)(\\d{3})(\\d|X)?$";
     public static final String MOBILE_PHONE = "^1\\d{10}$";
 
+    @EqualsAndHashCode(callSuper = true)
     @Data
     @ToString
     @AllArgsConstructor
@@ -28,11 +26,13 @@ public class ValidRule {
     public static class NotNull extends BasicRule {
         private String message = "不能为空";
 
+        @Override
         public boolean valid(Object val, String field) {
             return !isEmpty(val);
         }
     }
 
+    @EqualsAndHashCode(callSuper = true)
     @Data
     @ToString
     @AllArgsConstructor
@@ -45,11 +45,13 @@ public class ValidRule {
             this.regexp = regexp;
         }
 
+        @Override
         public boolean valid(Object val, String field) {
             return isMatches(this.regexp, val.toString());
         }
     }
 
+    @EqualsAndHashCode(callSuper = true)
     @Data
     @ToString
     @AllArgsConstructor
@@ -63,6 +65,7 @@ public class ValidRule {
         }
     }
 
+    @EqualsAndHashCode(callSuper = true)
     @Data
     @ToString
     @AllArgsConstructor
@@ -100,6 +103,7 @@ public class ValidRule {
         }
     }
 
+    @EqualsAndHashCode(callSuper = true)
     @Data
     @ToString
     @AllArgsConstructor
@@ -117,6 +121,7 @@ public class ValidRule {
         }
     }
 
+    @EqualsAndHashCode(callSuper = true)
     @Data
     @ToString
     @AllArgsConstructor

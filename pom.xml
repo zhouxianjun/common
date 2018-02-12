@@ -95,9 +95,9 @@
             <version>3.2.3</version>
         </dependency>
         <dependency>
-            <groupId>com.aliyuncs</groupId>
-            <artifactId>dysmsapi</artifactId>
-            <version>1.0</version>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+            <version>1.1.0</version>
         </dependency>
 
         <!--JSON-->
