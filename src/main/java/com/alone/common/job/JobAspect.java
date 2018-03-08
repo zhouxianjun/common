@@ -38,7 +38,9 @@ public class JobAspect extends OutsideAspect<JobStruct> {
                 log.warn("添加任务异常", e);
             }
         }
-        jobClient.addJob(jobs);
+        if (!jobs.isEmpty()) {
+            jobClient.addJob(jobs);
+        }
     }
 
     public void addJob(Collection<JobStruct> jobs) {
